@@ -1,31 +1,15 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "landing.php",
-      "use": "vercel-community/php"
-    },
-    {
-      "src": "landing.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "landing/img/**",
-      "use": "@vercel/static"
-    }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "routes": [
     {
       "src": "^/$",
-      "dest": "/landing.php"
+      "dest": "/index.html"
     },
     {
-      "src": "^/landing.css$",
-      "dest": "/landing.css"
-    },
-    {
-      "src": "^/landing/img/(.*)$",
-      "dest": "/landing/img/$1"
+      "src": "^/(.*)$",
+      "dest": "/$1"
     }
   ]
 }
