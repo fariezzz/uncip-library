@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "template/lightweight/**/*.php", "use": "@vercel/php" }
+  ],
+  "routes": [
+    { "src": "^/$", "dest": "/template/lightweight/landing.php" },
+    { "src": "^/(.*)$", "dest": "/template/lightweight/$1" }
+  ]
+}
