@@ -1,7 +1,363 @@
 <?php
 /**
- * Landing Page Entry Point
- * Akses via: localhost/slims/landing.php
+ * Landing Page - Perpustakaan Universitas Cipasung
+ * Lokasi: c:\xampp\htdocs\slims\landing.php
+ * URL: http://localhost/slims/landing.php
  */
-header('Location: template/lightweight/landing.php');
-exit;
+
+$swb        = '/slims/';
+$libName    = 'PERPUSTAKAAN UNIVERSITAS CIPASUNG';
+$libSub     = 'Perpustakaan Universitas Cipasung berkomitmen menjadi pusat sumber informasi tepercaya untuk mendukung kegiatan akademik dan penelitian.';
+$imgBase    = 'landing/img/';
+$logoSrc    = $imgBase . 'logo-uncip.png';
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?php echo $libName; ?> — Selamat Datang</title>
+<meta name="description" content="Perpustakaan Universitas Cipasung — Sumber informasi tepercaya untuk mendukung kegiatan belajar, mengajar, dan penelitian.">
+<link rel="shortcut icon" href="webicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="template/lightweight/css/minified.css">
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+<div class="lp-page">
+
+<!-- ========== NAVBAR ========== -->
+<header class="lp-navbar">
+  <div class="lp-navbar-inner">
+    <a href="<?php echo $swb; ?>index.php" class="lp-logo">
+      <img src="<?php echo $logoSrc; ?>" alt="Logo Universitas Cipasung">
+      <div class="lp-logo-text">
+        <h1>PERPUSTAKAAN<br>UNIVERSITAS CIPASUNG</h1>
+        <span>Gateway to Knowledge</span>
+      </div>
+    </a>
+    <nav class="lp-nav" id="lpNav">
+      <a href="#" class="active">Beranda</a>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#koleksi">Koleksi</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#layanan">Panduan</a>
+      <a href="#berita">Berita</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <div class="lp-nav-actions">
+      <button class="lp-search-icon" title="Cari"><i class="fa fa-search"></i></button>
+      <a href="<?php echo $swb; ?>index.php?p=member" class="lp-login-btn">
+        <i class="fa fa-user"></i> Login
+      </a>
+    </div>
+    <button class="lp-mobile-toggle" id="mobileToggle">&#9776;</button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="lp-hero">
+  <div class="lp-hero-content">
+    <p class="lp-hero-welcome">Selamat Datang di</p>
+    <h2>PERPUSTAKAAN<br>UNIVERSITAS CIPASUNG</h2>
+    <p class="lp-hero-sub">Sumber informasi tepercaya untuk mendukung kegiatan belajar, mengajar, penelitian, dan pengabdian kepada masyarakat.</p>
+    <form class="lp-hero-search" action="<?php echo $swb; ?>index.php" method="get" autocomplete="off">
+      <input type="text" name="keywords" placeholder="Cari buku, e-book, jurnal, dan lainnya...">
+      <button type="submit" name="search" value="search">Cari</button>
+    </form>
+    <div class="lp-hero-tags">
+      Pencarian Populer:
+      <span onclick="location.href='<?php echo $swb; ?>index.php?keywords=Akuntansi&search=search'">Akuntansi</span>
+      <span onclick="location.href='<?php echo $swb; ?>index.php?keywords=Manajemen&search=search'">Manajemen</span>
+      <span onclick="location.href='<?php echo $swb; ?>index.php?keywords=Ekonomi&search=search'">Ekonomi</span>
+      <span onclick="location.href='<?php echo $swb; ?>index.php?keywords=Kewirausahaan&search=search'">Kewirausahaan</span>
+      <span onclick="location.href='<?php echo $swb; ?>index.php?keywords=Digital+Library&search=search'">Digital Library</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="lp-stats">
+  <div class="lp-stats-grid">
+    <div class="lp-stat-item">
+      <div class="lp-stat-icon"><i class="fa fa-book"></i></div>
+      <div class="lp-stat-info"><h3>36.732+</h3><p>Koleksi Buku</p></div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-icon"><i class="fa fa-tablet"></i></div>
+      <div class="lp-stat-info"><h3>18.450+</h3><p>E-Book &amp; Jurnal</p></div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-icon"><i class="fa fa-users"></i></div>
+      <div class="lp-stat-info"><h3>2.185+</h3><p>Anggota Aktif</p></div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-icon"><i class="fa fa-clock-o"></i></div>
+      <div class="lp-stat-info"><h3>Jam Layanan</h3><p>Senin - Jumat<br>07.30 - 16.30</p></div>
+    </div>
+    <div class="lp-stat-item">
+      <div class="lp-stat-icon"><i class="fa fa-university"></i></div>
+      <div class="lp-stat-info"><h3>Perpustakaan</h3><p>Tempat belajar<br>yang nyaman</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LAYANAN ========== -->
+<section class="lp-services" id="layanan">
+  <div class="lp-container">
+    <h2 class="lp-section-title">Layanan Kami</h2>
+    <div class="lp-services-grid">
+      <div class="lp-service-card">
+        <div class="lp-service-icon"><i class="fa fa-search"></i></div>
+        <h3>OPAC</h3>
+        <p>Telusuri koleksi buku, e-book, jurnal, dan bahan pustaka lainnya.</p>
+        <a href="<?php echo $swb; ?>index.php?search=search&keywords=" class="lp-arrow">Telusuri Sekarang &rarr;</a>
+      </div>
+      <div class="lp-service-card">
+        <div class="lp-service-icon"><i class="fa fa-globe"></i></div>
+        <h3>E-Resources</h3>
+        <p>Akses berbagai jurnal elektronik, e-book, dan database terpercaya.</p>
+        <a href="#" class="lp-arrow">Akses Sekarang &rarr;</a>
+      </div>
+      <div class="lp-service-card">
+        <div class="lp-service-icon"><i class="fa fa-id-card"></i></div>
+        <h3>Keanggotaan</h3>
+        <p>Informasi pendaftaran anggota dan perpanjangan masa keanggotaan.</p>
+        <a href="<?php echo $swb; ?>index.php?p=member" class="lp-arrow">Selengkapnya &rarr;</a>
+      </div>
+      <div class="lp-service-card">
+        <div class="lp-service-icon"><i class="fa fa-calendar"></i></div>
+        <h3>Reservasi</h3>
+        <p>Reservasi ruang baca, diskusi, dan fasilitas perpustakaan.</p>
+        <a href="#" class="lp-arrow">Reservasi Sekarang &rarr;</a>
+      </div>
+      <div class="lp-service-card">
+        <div class="lp-service-icon"><i class="fa fa-book"></i></div>
+        <h3>Panduan</h3>
+        <p>Panduan layanan, tata tertib, dan cara pemanfaatan perpustakaan.</p>
+        <a href="#" class="lp-arrow">Lihat Panduan &rarr;</a>
+      </div>
+      <div class="lp-service-card">
+        <div class="lp-service-icon"><i class="fa fa-info-circle"></i></div>
+        <h3>Informasi</h3>
+        <p>Pengumuman terbaru, kegiatan, dan informasi penting dari perpustakaan.</p>
+        <a href="#" class="lp-arrow">Lihat Informasi &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KOLEKSI ========== -->
+<section class="lp-collections" id="koleksi">
+  <div class="lp-container">
+    <h2 class="lp-section-title">Jelajahi Koleksi Kami</h2>
+    <div class="lp-collections-grid">
+      <div class="lp-col-card">
+        <img src="<?php echo $imgBase; ?>col-buku.png" alt="Buku">
+        <div class="lp-col-card-body">
+          <h3>Buku</h3>
+          <p>Koleksi buku cetak dari berbagai bidang ilmu pengetahuan.</p>
+          <a href="<?php echo $swb; ?>index.php?search=search&keywords=" class="lp-arrow">Jelajahi &rarr;</a>
+        </div>
+      </div>
+      <div class="lp-col-card">
+        <img src="<?php echo $imgBase; ?>col-ebook.png" alt="E-Book">
+        <div class="lp-col-card-body">
+          <h3>E-Book</h3>
+          <p>Ribuan e-book dapat diakses kapan saja, di mana saja.</p>
+          <a href="#" class="lp-arrow">Akses Sekarang &rarr;</a>
+        </div>
+      </div>
+      <div class="lp-col-card">
+        <img src="<?php echo $imgBase; ?>col-jurnal.png" alt="Jurnal">
+        <div class="lp-col-card-body">
+          <h3>Jurnal</h3>
+          <p>Akses jurnal nasional dan internasional terakreditasi dan bereputasi.</p>
+          <a href="#" class="lp-arrow">Telusuri &rarr;</a>
+        </div>
+      </div>
+      <div class="lp-col-card">
+        <img src="<?php echo $imgBase; ?>col-database.png" alt="Database">
+        <div class="lp-col-card-body">
+          <h3>Database</h3>
+          <p>Database ilmiah terkemuka untuk mendukung referensi Anda.</p>
+          <a href="#" class="lp-arrow">Akses Sekarang &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BERITA ========== -->
+<section class="lp-news" id="berita">
+  <div class="lp-container">
+    <div class="lp-news-header">
+      <h2 class="lp-section-title">Berita &amp; Kegiatan</h2>
+      <a href="#">Lihat Semua &rarr;</a>
+    </div>
+    <div class="lp-news-grid">
+      <div class="lp-news-card">
+        <div class="lp-news-card-img" style="background:linear-gradient(135deg,#1B2A4A,#2A3F66);display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;">
+          <i class="fa fa-bullhorn"></i>
+          <span class="lp-news-badge lp-badge-yellow">PENGUMUMAN</span>
+        </div>
+        <div class="lp-news-card-body">
+          <p class="lp-date">06 Mei 2025</p>
+          <h3>Perpanjangan Peminjaman Buku Selama Libur Semester Genap 2024/2025</h3>
+        </div>
+      </div>
+      <div class="lp-news-card">
+        <div class="lp-news-card-img" style="background:linear-gradient(135deg,#E53E3E,#C53030);display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;">
+          <i class="fa fa-calendar-check-o"></i>
+          <span class="lp-news-badge lp-badge-red">KEGIATAN</span>
+        </div>
+        <div class="lp-news-card-body">
+          <p class="lp-date">03 Mei 2025</p>
+          <h3>Workshop Literasi Informasi bagi Mahasiswa</h3>
+        </div>
+      </div>
+      <div class="lp-news-card">
+        <div class="lp-news-card-img" style="background:linear-gradient(135deg,#3182CE,#2B6CB0);display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;">
+          <i class="fa fa-book"></i>
+          <span class="lp-news-badge lp-badge-blue">KOLEKSI BARU</span>
+        </div>
+        <div class="lp-news-card-body">
+          <p class="lp-date">28 April 2025</p>
+          <h3>Penambahan Koleksi Baru Bulan April 2025</h3>
+        </div>
+      </div>
+      <div class="lp-news-card">
+        <div class="lp-news-card-img" style="background:linear-gradient(135deg,#38A169,#2F855A);display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;">
+          <i class="fa fa-group"></i>
+          <span class="lp-news-badge lp-badge-green">KUNJUNGAN</span>
+        </div>
+        <div class="lp-news-card-body">
+          <p class="lp-date">20 April 2025</p>
+          <h3>Kunjungan Perpustakaan oleh Mahasiswa Baru</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FASILITAS ========== -->
+<section class="lp-facilities" id="fasilitas">
+  <div class="lp-container">
+    <div class="lp-facilities-inner">
+      <div class="lp-facilities-main">
+        <h3>Fasilitas Nyaman untuk Belajar dan Berkarya</h3>
+        <p>Kami menyediakan berbagai fasilitas untuk mendukung kenyamanan dan produktivitas Anda.</p>
+        <div class="lp-facilities-icons">
+          <div class="lp-facility-item">
+            <div class="lp-fac-icon"><i class="fa fa-book"></i></div>
+            <span>Ruang Baca Nyaman</span>
+          </div>
+          <div class="lp-facility-item">
+            <div class="lp-fac-icon"><i class="fa fa-wifi"></i></div>
+            <span>Wi-Fi Gratis</span>
+          </div>
+          <div class="lp-facility-item">
+            <div class="lp-fac-icon"><i class="fa fa-comments"></i></div>
+            <span>Ruang Diskusi &amp; Meeting</span>
+          </div>
+          <div class="lp-facility-item">
+            <div class="lp-fac-icon"><i class="fa fa-desktop"></i></div>
+            <span>Komputer &amp; Printer</span>
+          </div>
+          <div class="lp-facility-item">
+            <div class="lp-fac-icon"><i class="fa fa-film"></i></div>
+            <span>Area Multimedia</span>
+          </div>
+          <div class="lp-facility-item">
+            <div class="lp-fac-icon"><i class="fa fa-snowflake-o"></i></div>
+            <span>AC &amp; Suasana Sejuk</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-quote-card">
+        <div class="lp-quote-mark">&ldquo;</div>
+        <p>Perpustakaan adalah pintu menuju ilmu, dan ilmu adalah kunci masa depan.</p>
+        <cite>&mdash; Universitas Cipasung</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="lp-footer" id="kontak">
+  <div class="lp-container">
+    <div class="lp-footer-grid">
+      <div>
+        <div class="lp-footer-logo">
+          <img src="<?php echo $logoSrc; ?>" alt="Logo">
+          <h4><?php echo $libName; ?></h4>
+        </div>
+        <p><?php echo $libSub; ?></p>
+        <div class="lp-footer-social">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube-play"></i></a>
+          <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Tautan Cepat</h4>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#koleksi">Koleksi</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#layanan">Panduan</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="<?php echo $swb; ?>index.php?search=search&keywords=">OPAC</a></li>
+          <li><a href="#">E-Resources</a></li>
+          <li><a href="<?php echo $swb; ?>index.php?p=member">Keanggotaan</a></li>
+          <li><a href="#">Reservasi</a></li>
+          <li><a href="#">Panduan</a></li>
+          <li><a href="#">Informasi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak Kami</h4>
+        <ul>
+          <li><i class="fa fa-map-marker"></i> Jl. Raya Cipasung No. 35, Singaparna, Kab. Tasikmalaya, Jawa Barat 46417</li>
+          <li><i class="fa fa-phone"></i> (0265) 123456</li>
+          <li><i class="fa fa-envelope"></i> perpustakaan@uncip.ac.id</li>
+          <li><i class="fa fa-clock-o"></i> Senin - Jumat, 07.30 - 16.30</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lp-footer-bottom">
+      &copy; <?php echo date('Y'); ?> <?php echo $libName; ?>. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+</div><!-- .lp-page -->
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('mobileToggle').addEventListener('click', function () {
+    document.getElementById('lpNav').classList.toggle('show');
+  });
+
+  // Smooth scroll untuk anchor links
+  document.querySelectorAll('.lp-nav a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('lpNav').classList.remove('show');
+      }
+    });
+  });
+</script>
+</body>
+</html>

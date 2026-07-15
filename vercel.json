@@ -1,10 +1,13 @@
 {
   "version": 2,
   "builds": [
-    { "src": "template/lightweight/**/*.php", "use": "@vercel/php" }
+    { "src": "landing.php", "use": "@vercel/php" },
+    { "src": "landing.css", "use": "@vercel/static" },
+    { "src": "landing/img/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "^/$", "dest": "/template/lightweight/landing.php" },
-    { "src": "^/(.*)$", "dest": "/template/lightweight/$1" }
+    { "src": "^/$", "dest": "/landing.php" },
+    { "src": "^/landing.css$", "dest": "/landing.css" },
+    { "src": "^/landing/img/(.*)$", "dest": "/landing/img/$1" }
   ]
 }
